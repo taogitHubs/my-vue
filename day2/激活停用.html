@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./vue.js"></script>
+    <script>
+        var sub={
+            template:`
+            <div> 我是子组件</div>
+                `,
+            activated:function(){
+                console.log('activated');//激活
+            } ,
+            deactivated:function(){
+                console.log('deactivated')//停用
+            }
+        }
+        var App={
+            data:function(){
+                return {
+                    text:true
+                }
+            },
+             components: {
+                'sub-vue': sub
+            },
+            template:`
+             <div>
+                <keep-alive>
+                    <sub-vue v-if="text"></sub-vue>
+                </keep-alive>
+                <button @click="text = !text">移除或插入组件</button>
+            </div>
+              
+            `,
+        }
+        new Vue({
+            el:'#app',
+            render:c=>c(App)
+        })
+    </script>
+</body>
+</html>
