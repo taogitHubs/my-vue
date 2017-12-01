@@ -1,0 +1,17 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>锚点改变不会发请求</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        window.addEventListener('hashchange',function(){
+            console.log('锚点改变了');
+            console.log(location.hash);
+        })
+
+    </script>
+
+</body>
+</html>

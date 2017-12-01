@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+        var Person = function () {};
+        // Person.prototype.$router = {name:'我是router对象'};
+        var myRouter = {name:'我是router对象'};
+
+        //定义get
+        Object.defineProperty(Person.prototype,'$router',{
+            get:function(){
+                return myRouter;
+            }
+        });
+
+        console.log(Person.prototype.$router);
+
+        //利用原型构建的实例，会具备这个属性
+        var p1 = new Person();
+        var p2 = new Person();
+        console.log(p1.$router);
+        console.log(p2.$router);
+
+
+
+
+
+
+    </script>
+</body>
+</html>

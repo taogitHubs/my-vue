@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="background-color:red;height:150px;">
+        <a href="#/music">音乐</a>
+        <a href="#/movie">电影</a>
+        <a href="#/friend">好友</a>
+    </div>
+    <div style="background-color:yellowgreen;height:300px;" id="b">
+    </div>
+    <div style="background-color:greenyellow;height:150px;">
+        版权所有 违者必究
+    </div>
+    <script type="text/javascript">
+    // 监视锚点值改变
+    window.addEventListener('hashchange', function() {
+
+
+        //获取hash值
+        var hash = location.hash;
+        var url = '';
+        switch (hash) {
+            case '#/music':
+                url = './music.json';
+                break;
+            case '#/movie':
+                url = './movie.json';
+                break;
+            case '#/friend':
+                url = './friend.json';
+                break;
+        }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', url);
+        xhr.send();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                document.getElementById('b').innerHTML = xhr.responseText;
+            }
+        }
+
+    });
+    </script>
+</body>
+
+</html>

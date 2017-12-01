@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+     <div style="background-color:red;height:150px;">
+        <a href="#/register">注册页面</a>
+        <a href="#/login">登录页面</a>
+    </div>
+
+    <div style="background-color:yellowgreen;height:300px;" id="b">
+
+    </div>
+
+
+    <div style="background-color:greenyellow;height:150px;">
+        版权所有 违者必究
+    </div>
+
+    <script type="text/javascript">
+        // 监视锚点值改变
+        window.addEventListener('hashchange',function(){
+            //获取hash值
+            var hash = location.hash;
+            var html = '';
+            switch(hash){
+                case '#/register':
+                    html = '<h1>欢迎注册</h1>'
+                break;
+                 case '#/login':
+                    html = '<h1>欢迎登录</h1>'
+                break;
+            }
+
+            document.getElementById('b').innerHTML = html;
+
+        })
+
+
+    </script>
+</body>
+</html>
